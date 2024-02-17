@@ -1,7 +1,6 @@
 function getMachineChoice() {
     const choices = ["Pedra", "Papel", "Tesoura"];
     const randomNumber = Math.floor(Math.random() * 3);
-    console.log(choices[randomNumber])
     return choices[randomNumber];
 }
 
@@ -17,28 +16,55 @@ let image = document.getElementById('imagem')
 let textMachinePlay = document.querySelector('.card > span')
 let effectMachine = document.getElementById('effectPlay')
 let message = document.querySelector('#message p')
-
+let buttons = document.querySelectorAll('btn-def')
 
 const pointMachine = (userChoice, machineChoice) => {
     setTimeout(() => {
+        message.style.backgroundColor = 'red'
         message.innerHTML = `${userChoice} perde de ${machineChoice}!`
         countMachine++
         containerCountMachine.innerHTML = countMachine
+        clearMessage()
+
+        setTimeout(() => {
+            if(countMachine == 10){
+                alert('Você perdeu!')
+                location.reload()
+            }
+        }, 200)
     }, 600);
 }
 
 const pointUser = (userChoice, machineChoice) => {
     setTimeout(() => {
+        message.style.backgroundColor = 'green'
         message.innerHTML = `${userChoice} ganha de ${machineChoice}!`
         countUser++
         containerCountUser.innerHTML = countUser
+        clearMessage()
+
+        setTimeout(() => {
+            if(countUser == 10){
+                alert('Você ganhou!')
+                location.reload()
+            }
+        }, 200)
     }, 600);
 }
 
 const noPoints = () => {
     setTimeout(() => {
+        message.style.backgroundColor = 'grey'
         message.innerHTML = 'Empate!'
+        clearMessage()
     }, 600);
+}
+
+const clearMessage = () => {
+    setTimeout(() => {
+        message.style.backgroundColor = 'transparent'
+        message.innerHTML = ''
+    }, 2000);
 }
 
 const responseEffect = () => {
@@ -71,28 +97,28 @@ function game(userChoice) {
         noPoints()
     } else if (userChoice == 'Tesoura' && machinePlay == 'Tesoura') {
         noPoints()
-    } 
-    
+    }
+
     else if (userChoice == 'Pedra' && machinePlay == 'Tesoura') {
         pointUser(userChoice, machinePlay)
-    } 
-    
+    }
+
     else if (userChoice == 'Papel' && machinePlay == 'Pedra') {
         pointUser(userChoice, machinePlay)
-    } 
-    
-    else if(userChoice == 'Tesoura' && machinePlay == 'Papel'){
+    }
+
+    else if (userChoice == 'Tesoura' && machinePlay == 'Papel') {
         pointUser(userChoice, machinePlay)
     }
-    
+
     else if (userChoice == 'Pedra' && machinePlay == 'Papel') {
         pointMachine(userChoice, machinePlay)
-    } 
-    
+    }
+
     else if (userChoice == 'Papel' && machinePlay == 'Tesoura') {
         pointMachine(userChoice, machinePlay)
-    } 
-    
+    }
+
     else if (userChoice == 'Tesoura' && machinePlay == 'Pedra') {
         pointMachine(userChoice, machinePlay)
     }

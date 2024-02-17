@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 :root {
@@ -53,7 +54,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 40px;
+    gap: 15px;
 }
 
 .user,
@@ -86,6 +87,8 @@ main {
     width: 150px;
     height: 150px;
     border-radius: 100%;
+    border: none;
+    font-family: var(--defFont);
 }
 
 .card {
