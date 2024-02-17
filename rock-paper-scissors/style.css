@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cinza: #373737;
+    --azul: #6B9DFF;
+    --amarelo: #FFC24C;
+    --branco: #fff;
+    --defFont: "Nothing You Could Do", cursive;
+    --montserrat: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--cinza);
+    font-family: var(--defFont);
+    color: var(--branco);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background-color: var(--azul);
+    border-bottom: 1px solid var(--branco);
+}
+
+.points {
+    font-family: var(--montserrat);
+    font-weight: 600;
+    display: flex;
+    background-color: var(--amarelo);
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: solid 1px var(--branco);
+    gap: 15px;
+}
+
+.points div {
+    display: flex;
+    gap: 5px;
+}
+
+main {
+    height: calc(100vh - 75px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.user,
+.machine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+}
+
+.user>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+.btn-def {
+    cursor: pointer;
+    transition: ease all 0.2s;
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--azul);
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+
+.card {
+    transition: ease all 0.2s;
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--azul);
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+
+img {
+    width: 80px;
+}
+
+.btn-def:hover {
+    scale: 1.1;
+    box-shadow: inset -20px 20px 60px #2b6eff,
+        inset 20px -20px 60px #2c9bf5;
+}
+
+.btn-def:active {
+    opacity: 0.8;
+    scale: 0.9;
+}
+
+.machinePoint{
+    background-color: rgb(255, 0, 0);
+    padding: 10px;
+    border-radius: 5px;
+    font-family: var(--montserrat);
+    font-weight: 600;
+}
+  
+.userPoint{
+    background-color: rgb(0, 255, 0);
+    padding: 10px;
+    border-radius: 5px;
+    font-family: var(--montserrat);
+    color: black;
+    font-weight: 600;
+}  

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedra, Papel ou Tesoura</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Pedra, Papel ou Tesoura</h1>
+        <section class="points">
+            <div>
+                <p>Usuário</p>
+                <span class="user-points">0</span>
+            </div>
+            <span>vs</span>
+            <div>
+                <span class="machine-points">0</span>
+                <p>Máquina</p>
+            </div>
+        </section>
+    </header>
+    <main>
+        <section class="machine">
+            <p>Jogada da máquina</p>
+            <div class="card" id="effectPlay">
+                <img id="imagem" src="https://firebasestorage.googleapis.com/v0/b/rock-paper-scissors-13a88.appspot.com/o/question.png?alt=media&token=c54c4ed2-b5a2-46d7-a4de-521e8db12233" alt="Resultado da jogada da máquina">
+                <span></span>
+            </div>
+        </section>
+        <section id="message" style="font-family: var(--montserrat); font-weight: 600;">
+            <p></p>
+        </section>
+        <section class="user">
+            <p>Escolha sua jogada!</p>
+            <div>
+                <div class="btn-def" id="rock" href="">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/rock-paper-scissors-13a88.appspot.com/o/rock.png?alt=media&token=e8f4bd24-1fec-4c08-b030-a8007fb6ebee" alt="Mão fechada simbolizando o elemento pedra no jogo">
+                    <span>Pedra</span>
+                </div>
+                <div class="btn-def" id="paper" href="">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/rock-paper-scissors-13a88.appspot.com/o/paper.png?alt=media&token=5c462c7a-ec20-49d8-9c0f-2189332ae076" alt="Mão aberta simbolizando o elemento papel no jogo">
+                    <span>Papel</span>
+                </div>
+                <div class="btn-def" id="scissor" href="">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/rock-paper-scissors-13a88.appspot.com/o/scissor.png?alt=media&token=dc716cc4-1056-4cd2-8cef-595e6b66ca65" alt="Mão com apenas dois dedos levantados simbolizando o elemento tesoura no jogo">
+                    <span>Tesoura</span>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
