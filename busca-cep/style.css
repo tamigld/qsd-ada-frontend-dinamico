@@ -1,0 +1,39 @@
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table{
+    width: 80%;
+    border: 1px solid black;
+}
+
+td,
+th{
+    padding: 5px;
+    border: 1px solid black;
+}
+
+p{
+    padding: 0;
+    margin: 0;
+}
+
+#container{
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 300px;
+    border: solid 1px beige;
+    padding: 20px;
+    color: beige;
+    margin: 20px;
+}
