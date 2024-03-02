@@ -14,6 +14,16 @@
         <img draggable="false" src="./img/logo.png" alt="">
     </header>
     <main>
+        <section id="modal-delete-pokemon">
+            <div>
+                <h4 style="width: fit-content;" class="input-def">Tem certeza que deseja deletar esse Pokemón?</h4>
+                <div>
+                    <button type="button" class="btn-def delete-it" style="background-color: red; color: var(--branco); width: 150px;">Sim</button>
+                    <button type="button" class="btn-def dont-delete-it" style="background-color: grey; color: var(--branco); width: 150px;">Não</button>
+                </div>
+            </div>
+        </section>
+
         <section id="modalInfo">
             <div class="input-def" style="background-color: white; width: fit-content;">
                 <p></p>
@@ -22,11 +32,9 @@
 
         <section id="modalPokedex">
             <div>
-                <h3>Meus Pokemóns</h3>
+                <h3 style="margin-top: 35px;">Meus Pokemóns</h3>
                 <i class="fa-sharp fa-solid fa-xmark close-icon-2 btn-def"></i>
-                <p style="margin-top: 50px;"></p>
                 <div class="pokemons">
-
                 </div>
             </div>
         </section>

@@ -11,9 +11,10 @@ const input = document.querySelector('input');
 const pokemonName = document.querySelector('.name-pkm');
 const pokemonImage = document.getElementById('pokemonImage');
 const modal = document.getElementById('modal');
-const modalInfo = document.querySelector('#modalInfo > div')
-const modalPokedex = document.querySelector('#modalPokedex')
-const containerModalPokedex = document.querySelector('#modalPokedex > div')
+const modalInfo = document.querySelector('#modalInfo > div');
+const modalPokedex = document.querySelector('#modalPokedex');
+const modalDeletePokemon = document.querySelector('#modal-delete-pokemon');
+const containerModalPokedex = document.querySelector('#modalPokedex > div');
 
 const about = document.querySelector('.about');
 const charac = document.querySelector('.charac');
@@ -67,20 +68,40 @@ const loadTranslation = (container, textBefore) => {
 }
 
 const deletePokemon = (id) => {
+    let foundId = id
+    let card = document.querySelector(`.card-pokemon-id-${id}`)
+    let buttonDeletePokemon = document.querySelector('.delete-it');
+    let buttonDontDeletePokemon = document.querySelector('.dont-delete-it');
+    showModal(modalDeletePokemon);
 
-    if (confirm("Tem certeza que deseja deletar esse Pokemón?") == true) {
-        let idAchado = id
-        const pokedexList = JSON.parse(localStorage.getItem('pokemonList'))
-        pokedexList.splice(pokedexList.findIndex(({ id }) => id == idAchado), 1);
-        localStorage.setItem('pokemonList', JSON.stringify(pokedexList))
+    buttonDeletePokemon.addEventListener('click', () => {
+        const pokedexList = JSON.parse(localStorage.getItem('pokemonList'));
 
-        loadPokedex()
-    }
+        // pokedexList.splice(pokedex.findIndex((id) => {id == foundId}), 1);
+        // console.log(pokedex.findIndex(({id}) => {id == foundId}))
+        console.log(id)
+
+        localStorage.setItem('pokemonList', JSON.stringify(pokedexList));
+        card.style.scale = '0.0';
+
+        setTimeout(() => {
+            modalDeletePokemon.style.opacity = '0';
+            modalDeletePokemon.style.visibility = 'hidden';
+        }, 600);
+
+        setTimeout(() => {
+            loadPokedex();
+        }, 1000);
+    })
+
+    buttonDontDeletePokemon.addEventListener('click', () => {
+        modalDeletePokemon.style.opacity = '0';
+        modalDeletePokemon.style.visibility = 'hidden';
+    })
 }
 
 const loadPokedex = () => {
-    const pokedexList = JSON.parse(localStorage.getItem('pokemonList'))
-    console.log(pokedexList)
+    const pokedexList = JSON.parse(localStorage.getItem('pokemonList'));
 
     const colors = {
         normal: '#aa9',
@@ -101,7 +122,6 @@ const loadPokedex = () => {
         dark: '#111',
         steel: '#aab',
         fairy: '#e9e'
-
     }
 
     let pokemons = document.querySelector('.pokemons');
@@ -110,21 +130,19 @@ const loadPokedex = () => {
         pokemons.innerHTML = pokedexList.map((pokemon) => {
             return (
                 `
-                <div class="cardPokemon" style="border: 3px solid ${colors[pokemon.type]};">
-                <div class="cardImgPokemon">
-                <img src="${pokemon.img}" alt="">
-                </div>
-                <div>
-                <p>${toUpper(pokemon.name)}</p>
-                <p class="cardTypePokemon" style="background-color: ${colors[pokemon.type]};">${pokemon.type}</p>
-                </div>
+                <div class="cardPokemon card-pokemon-id-${pokemon.id}" style="border: 3px solid ${colors[pokemon.type]};">
+                    <div class="cardImgPokemon">
+                        <img src="${pokemon.img}" alt="">
+                    </div>
+                    <div>
+                        <p>${toUpper(pokemon.name)}</p>
+                        <p class="cardTypePokemon" style="background-color: ${colors[pokemon.type]};">${pokemon.type}</p>
+                    </div>
                 <button type="button" class="delete-pokemon" onclick=deletePokemon(${pokemon.id})><i class="fa-solid fa-trash-can"></i></button>
                 </div>
                 `
             )
         }).join('')
-    } else {
-        pokemons.innerHTML = "Você não salvou nenhum pokemón!";
     }
 }
 
@@ -173,7 +191,7 @@ buttonAddToPokedex.addEventListener('click', () => {
                 } else {
                     const newPokemon = new Pokemon(data.name, data.id, data.types[0].type.name)
                     oldPokedex.push(newPokemon)
-                    
+
                     localStorage.setItem('pokemonList', JSON.stringify(oldPokedex))
                     showModalInfo(modalInfo, 'Pokemón salvo com sucesso!')
                 }
@@ -237,6 +255,7 @@ buttonSearch.addEventListener('click', () => {
             })
 
             .catch(error => {
+                console.log(error)
                 if (error = 'SyntaxError: Unexpected token "N", "Not Found" is not valid JSON') {
                     showModalInfo(modalInfo, '<p> O Pokemón digitado não foi encontrado! <br>Tente novamente.');
                 }
