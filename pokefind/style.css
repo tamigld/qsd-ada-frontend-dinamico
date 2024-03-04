@@ -15,6 +15,37 @@
     --robotoMono: "Roboto Mono", monospace;
 }
 
+#modalOffline{
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url(./img/gifpokemon.webp);
+    background-size: cover;
+    backdrop-filter: blur(2px);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: var(--branco);
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#modalOffline h2{
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
 body {
     font-family: var(--robotoMono);
     background-color: var(--cinza);
