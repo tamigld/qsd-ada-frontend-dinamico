@@ -75,11 +75,12 @@ const deletePokemon = (id) => {
     showModal(modalDeletePokemon);
 
     buttonDeletePokemon.addEventListener('click', () => {
-        const pokedexList = JSON.parse(localStorage.getItem('pokemonList'));
+        let pokedexList = JSON.parse(localStorage.getItem('pokemonList'));
 
         // pokedexList.splice(pokedex.findIndex((id) => {id == foundId}), 1);
+        pokedexList = pokedexList.filter((pokemon) => pokemon.id !== foundId);
         // console.log(pokedex.findIndex(({id}) => {id == foundId}))
-        console.log(id)
+        console.log(pokedexList)
 
         localStorage.setItem('pokemonList', JSON.stringify(pokedexList));
         card.style.scale = '0.0';
